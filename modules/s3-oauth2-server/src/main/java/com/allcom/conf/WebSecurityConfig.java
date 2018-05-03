@@ -51,6 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/oauth/index").permitAll()
                 .antMatchers("/oauth/login").permitAll()
+                .antMatchers("/oauth/regist").permitAll()
                 .antMatchers("/oauth/token").permitAll()
                 .antMatchers("/oauth/check_token").permitAll()
                 .antMatchers("/oauth/confirm_access").permitAll()
@@ -61,7 +62,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/oauth/login")          //未登录时访问受保护资源都跳到这个url，get方法
-                .loginProcessingUrl("/oauth/login.do")  //登录请求拦截的url,也就是form表单提交时指定的action，post方法
+                .loginProcessingUrl("/oauth/login.do")  //登录请求拦截的url,也就是form表单提交时指定的action，post方法;
                 .failureUrl("/oauth/login?err=1");         //登录失败跳转的url
     }
 }

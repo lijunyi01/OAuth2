@@ -25,4 +25,8 @@ public class MysqlDao {
     public List<Map<String,Object>> getAccountInfo(String userName){
         return jdbcTemplate.queryForList("select * from account where user_name=?",userName);
     }
+
+    public void addUser(String userName,String encrytPass){
+        jdbcTemplate.update("insert into account(user_name,password,role_string) values(?,?,?)",userName,encrytPass,"ROLE_USER");
+    }
 }

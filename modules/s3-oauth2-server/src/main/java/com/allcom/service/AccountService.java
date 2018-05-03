@@ -7,6 +7,7 @@ import com.allcom.toolkitexception.ToolLibException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,10 +23,12 @@ public class AccountService {
     private static Logger log = LoggerFactory.getLogger(AccountService.class);
 
     final MysqlDao mysqlDao;
+    final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public AccountService(MysqlDao mysqlDao) {
+    public AccountService(MysqlDao mysqlDao,PasswordEncoder passwordEncoder) {
         this.mysqlDao = mysqlDao;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public Account authUser(String userName, String password) {
@@ -61,9 +64,21 @@ public class AccountService {
             return null;
         }
 
-        if (!u.getPassword().equals(password)) {
+        if(!passwordEncoder.matches(password,u.getPassword())) {
             return null;
         }
         return u;
+    }
+
+    public boolean regist(String userName,String password){
+        boolean ret = false;
+        mysqlDao.addUser(userName,passwordEncoder.encode(password));
+
+        List<Map<String,Object>> mapList = mysqlDao.getAccountInfo(userName);
+        if(mapList.size()>0){
+            ret = true;
+        }
+
+        return ret;
     }
 }
