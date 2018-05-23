@@ -5,6 +5,8 @@
       <list>
         <option value="$PROJECT_DIR$/modules/s1-oauth2-server-min/pom.xml" />
         <option value="$PROJECT_DIR$/modules/s2-oauth2-server-db/pom.xml" />
+        <option value="$PROJECT_DIR$/modules/s3-oauth2-server/pom.xml" />
+        <option value="$PROJECT_DIR$/modules/s4-oauth2-server-jwt/pom.xml" />
       </list>
     </option>
   </component>

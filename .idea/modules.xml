@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/modules/s1-oauth2-server-min/s1-oauth2-server-min.iml" filepath="$PROJECT_DIR$/modules/s1-oauth2-server-min/s1-oauth2-server-min.iml" />
       <module fileurl="file://$PROJECT_DIR$/modules/s2-oauth2-server-db/s2-oauth2-server-db.iml" filepath="$PROJECT_DIR$/modules/s2-oauth2-server-db/s2-oauth2-server-db.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s3-oauth2-server/s3-oauth2-server.iml" filepath="$PROJECT_DIR$/modules/s3-oauth2-server/s3-oauth2-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/s4-oauth2-server-jwt/s4-oauth2-server-jwt.iml" filepath="$PROJECT_DIR$/modules/s4-oauth2-server-jwt/s4-oauth2-server-jwt.iml" />
     </modules>
   </component>
 </project>
